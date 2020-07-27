@@ -1,0 +1,72 @@
+
+<!DOCTYPE html>
+<html>
+<head>
+<meta  content="width=device-width, initial-scale=1.0">
+<title>addpackage</title>
+<link href="login.css" rel="stylesheet" type="text/css" media="all" />
+ <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/css/bootstrap.min.css">
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
+  <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/js/bootstrap.min.js"></script>
+</head>
+<body>
+<div class="row">
+  <div class="col-md-1">
+<div class="sidebar">
+  <a  href="welcometour.php">Home</a>
+  <a class="active" href="addpackage.html">Add packages</a>
+  <a href="touraccount.php">Account</a>
+  <a style="color:red"  href="logout.php">Logout</a>
+</div>
+</div>
+<div class="col-md-10">
+<div class="content">
+<br>
+  <h2 style="margin-left: 100px ">Add Packages to Destination Pakistan </h2>
+ <div style="margin-left:200px" class="login-page" >
+        <div class="form">
+            <form  onsubmit="return check(this)" action="addpackage.php" method="post" >
+       Name:
+                <input type="text" name="name" placeholder="Package Name"  required="required"/>
+
+            Destination City:    
+                <input type="text" name="destinationCity" placeholder="Destination City"  required="required"/>
+                No of Days:
+                <input type="Number" name="noOfDays" placeholder="Days during Trip" />
+                Price:
+                <input type="Number" name="price" placeholder="Price of the trip" />
+               Contact Number:
+                <input type="Number" name="contactNumber" placeholder="Contact Number" maxlength="12">
+                Description:
+                <textarea class="content" placeholder="Add Your Package Details Here" name="description" rows="5" cols="35"></textarea>
+              <button class="btn btn-info">Add Package</button>
+                
+            </form>
+        </div>
+    </div>
+  </div>
+  <div class="col-md-1">
+  </div>
+</div>
+                
+
+</body>
+<script type="text/javascript">
+function check(form)
+{
+tr= parseInt(form.noOfdays.value);
+ ar= parseInt(form.price.value);
+
+if( ( tr< 0) || (ar< 0) )
+{
+  alert("Enter a positive Number");
+  return false;
+
+}
+ else{
+
+ return true;
+}
+ }
+</script>
+</html>

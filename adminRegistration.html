@@ -1,0 +1,71 @@
+﻿<!DOCTYPE html>
+<html>
+<head>
+    <title>Administrator Registraion</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+  <link href="login.css" rel="stylesheet" type="text/css" media="all" />
+
+
+</head>
+<body>
+
+
+    <h1>DP-Admin Registration page </h1>
+
+    <div class="login-page">
+        <div class="form">
+            <form  class="login-form" action="adminRegistration.php" method="post" onsubmit="return checkPassword(this)">
+       
+                <input type="text" name="fullname" placeholder="FullName"  required="required"/>
+                <input type="email" name="email" placeholder="Email"  required="required"/>
+                <input type="Number" name="age" placeholder="Age"  required="required"/>
+                <input type="password" name="password1" placeholder="Password" required="required"/>
+                <input type="password" name="password2" placeholder="Confirm Password" required="">
+
+                <button>Register</button>
+                <p class="message">Already have account? <a href="login.html">Login</a></p>
+            </form>
+        </div>
+    </div>
+     <script>
+            function checkPassword(form) {
+                password1 = form.password1.value;
+                password2 = form.password2.value;
+                age = form.age.value;
+
+                p1len = password1.length;
+                if (age < 1){
+                	alert("\nPlease Enter a valid Age")
+                    return false;
+                }
+                // If password not entered 
+               else if (password1 == '')
+                    alert("Please enter Password");
+
+                // If confirm password not entered 
+                else if (password2 == '')
+                    alert("Please enter confirm password");
+
+                // check for age.     
+                
+                 else if (p1len < 8){
+                 	alert("\nPlease Choose a Strong password atleast 8 characters")
+                    return false;
+                }
+                //if do not match
+                else if (password1 != password2) {
+                    alert("\nPassword did not match: Please try again...")
+                    return false;
+                }
+                
+
+                // If same return True. 
+                else {
+                    
+                    return true;
+                }
+            } 
+            
+        </script>
+</body>
+</html>

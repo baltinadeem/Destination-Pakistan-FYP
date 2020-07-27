@@ -1,0 +1,79 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta  content="width=device-width, initial-scale=1.0">
+<title>addHotel</title>
+<link href="login.css" rel="stylesheet" type="text/css" media="all" />
+<link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
+  <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/js/bootstrap.min.js"></script>
+</head>
+<body>
+
+<div class="sidebar">
+  <a  href="welcomehotel.php">Home</a>
+  <a class="active" href="addhotel.html">Add Hotel</a>
+  <a href="hotelaccount.php">Account</a>
+  <a style="color:red"  href="logout.php">Logout</a>
+</div>
+</div>
+
+<div class="content">
+  <br>
+  <h2 style="margin-left: 100px ">Add Your Hotels to Destination Pakitan</h2>
+ <div style="margin-left:200px" class="login-page" >
+        <div class="form">
+            <form  onsubmit="return check(this)" action="addhotel.php" method="post" >
+       Hotel Name:
+                <input type="text" name="name" placeholder="Hotel Name"  required="required"/>
+Address:
+                <input type="text" name="address" placeholder="Address"  required="required"/>
+                City:<input type="text" name="city" placeholder="City"  required="required"/>
+                No of Rooms:<input type="Number" name="noOfRooms" placeholder="Number of Total Rooms" />
+                No of Available Rooms:<input type="Number" name="noOfAvailableRooms" placeholder="Number of Available Rooms" />
+                Maximum Price:<input type="Number" name="maxPrice" placeholder="Maximum Price of a Room" />
+                Minimum Price:<input type="Number" name="minPrice" placeholder="Minimum Price of a Room" />
+                Contact Number:<input type="Number" maxlenght="12" name="contactNumber" placeholder="Contact Number">
+                Description:<textarea class="content" placeholder="Add Your Hotel Details Here " name="description" rows="5" cols="35"></textarea>
+              <button class="btn btn-info">Add Hotel</button>
+                
+            </form>
+        </div>
+    </div>
+                
+
+</body>
+<script type="text/javascript">
+function check(form)
+{
+tr= parseInt(form.noOfRooms.value);
+ ar= parseInt(form.noOfAvailableRooms.value);
+ mxp=parseInt(form.maxPrice.value);
+ mnp=parseInt(form.minPrice.value);
+ 
+if( ( tr< 0) || (ar< 0) || (mxp < 0) || (mnp < 0) )
+{
+  alert("Enter a positive Number");
+  return false;
+
+}
+else if (tr < ar)
+  {
+
+    alert("Total Number of Rooms can not be less than No of Available Rooms");
+    return false;
+    
+  }
+  else if(mxp < mnp)
+  {
+    
+    alert("Maximum Price can not be less than Minimum Price");
+    return false;
+    
+  }else{
+
+ return true;
+ }
+}
+</script>
+</html>

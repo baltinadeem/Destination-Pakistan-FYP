@@ -1,0 +1,70 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta  content="width=device-width, initial-scale=1.0">
+<title>add vehicle</title>
+<link href="login.css" rel="stylesheet" type="text/css" media="all" />
+ <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/css/bootstrap.min.css">
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
+  <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/js/bootstrap.min.js"></script>
+</head>
+<body>
+<div class="row">
+  <div class="col-md-1">
+<div class="sidebar">
+  <a  href="welcometransport.php">Home</a>
+  <a class="active" href="addvehicle.html">Add Vehicle</a>
+  <a href="transportaccount.php">Account</a>
+  <a style="color:red"  href="logout.php">Logout</a>
+</div>
+</div>
+<div class="col-md-10">
+<div class="content">
+<br>
+  <h2 style="margin-left: 100px ">Add Your Vehicles to Destination Pakistan </h2>
+ <div style="margin-left:200px" class="login-page" >
+        <div class="form">
+            <form  onsubmit="return check(this)" action="addvehicle.php" method="post" >
+       Vehicle Name:
+                <input type="text" name="name" placeholder="Vehicle Name"  required="required"/>
+
+             Vehicle Color:  <input type="text" name="color" placeholder=" Color"  required="required"/>
+             Vehicle Model:
+                <input type="Number" name="model" placeholder="YYYY"  maxlength="4" required="required"/>
+                Availability:
+                <input type="text" name="availability" placeholder="Available/Reserved" />
+                Price:
+                <input type="Number" name="price" placeholder="Per hour price" />
+                Contact Number:
+                <input type="Number" name="contactNumber" placeholder="Contact Number">
+                <textarea class="content" placeholder="Other Details" name="description" rows="5" cols="35"></textarea>
+              <button class="btn btn-primary">Add Vehicle</button>
+                
+            </form>
+        </div>
+    </div>
+  </div>
+  <div class="col-md-1">
+  </div>
+</div>
+                
+
+</body>
+<script type="text/javascript">
+function check(form)
+{
+price= parseInt(form.price.value);
+ model= parseInt(form.model.value);
+
+if( ( price< 0) || (model< 0)  )
+{
+  alert("Enter a positive Number");
+  return false;
+
+}  else{
+
+ return true;
+}
+ }
+</script>
+</html>

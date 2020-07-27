@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+
+<html lang="en">
+<head>
+    <meta charset="utf-8" />
+    <title>tourRegistration.php</title>
+</head>
+<body>
+
+    <h1>Attention</h1>
+<?php
+include("config.php");
+$fname=$_POST['fullname'];
+$email=$_POST['email'];
+$cnic=$_POST['cnic'];
+$age=$_POST['age'];
+$pass=$_POST['password2'];
+
+if($fname!=null && $email!=null && $pass!=null && $age!=null && $cnic!=null){
+
+// Create connection
+$conn = new mysqli(DB_SERVER,DB_USERNAME,DB_PASSWORD,DB_DATABASE);
+// Check connection
+
+if ($conn->connect_error) {
+    die("Connection failed: " . $conn->connect_error);
+} 
+
+$sql = "INSERT INTO `tour operator` (`fullname`, `email`, `password`, `cnic`, `age`) VALUES ('$fname', '$email', '$pass', '$cnic', '$age')";
+$last_id = $conn->insert_id;
+if ($conn->query($sql) === TRUE) {
+ echo "<script>
+alert(' Account Created Sucessfully.Please login to the System');
+window.location.href='login.html';
+</script>";
+} else {
+    echo "Error: ". $conn->error;
+}
+
+$conn->close();
+	}
+	else{
+	echo "<h2>Incorrect/Incomplete Data Entered.</h2>";
+	}
+    ?>
+
+</body>
+</html>
